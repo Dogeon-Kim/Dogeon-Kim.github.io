@@ -1,121 +1,143 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Overwatch Heroes</title>
-  <link rel="stylesheet" href="5-13.css">
-</head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            background-color: white;
+            width: 1200px;
+            height: 700px;
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+            position:relative;
+            margin: auto;
+        }
+        .center{
+            border-top-width:5px;
+            border-top-style:solid;
+            border-top-color:black;
+
+            border-right-width:5px;
+            border-right-style:solid;
+            border-right-color:black;
+
+            border-left-width:5px;
+            border-left-style:solid;
+            border-left-color:black;
+
+            width: 500px;
+            height: 300px;
+            position:absolute;
+            top: 100px;
+            left:350px;
+        }
+        .sc{
+            border-width: 5px;
+            border-color: black;
+            border-style: solid;
+            width: 80px;
+            height: 200px;
+            position:absolute;
+            top: 495px;
+            left:560px;
+        }
+
+        .book1{
+            border-width: 1px;
+            border-color: red;
+            border-style: solid;
+            width: 300px;
+            height: 350px;
+            position: relative;
+            top: -400px;
+            left: 375px;
+        }
+        .front1{
+            border-width: 5px;
+            border-color: black;
+            border-style: solid;
+            width: 250px;
+            height: 300px;
+            top: 50px;
+            position: absolute;
+        }
+
+    </style>
 <body>
- <div class="container">  <!-- [문1]. 전체 컨테이너 클래스 지정 : .container +[Tab] -->
-    <!--HEROES 사진 클래스-->
-    <div class="heroes">
-<!-- .hero*32>.image+[탭] 으로 한꺼번에 32개 클래스 입력 가능(VsCode나 codepen.io)   -->
-      <div class="hero"> 
-        <div class="image"></div> 
-      </div>
-      <div class="hero"> <!-- [문2]. hero 클래스 지정  -->
-        <div class="image"></div> <!-- [문3]. image 클래스 지정  -->
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
-      <div class="hero">
-        <div class="image"></div>
-      </div>
+    <div id="container">
+        <div class="center"></div>
+        <div class="sc"></div>
+        <canvas id="side" width="1200" height="700"></canvas>
+    </div>
+    <div class="book1">
+        <div class="front1"></div>
+        <canvas id="side" width="300" height="350"></canvas>
+
     </div>
 
-    <!--LOGO-->
-    <div class="logo"> <!-- [문4]. logo 클래스 지정  -->
-      <img src="./images/logo_overwatch.png" alt="Overwatch" /> 
-    </div>
+    <script>
+        const canvas = document.getElementById('side');
+        const ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(355, 105);
+        ctx.lineWidth = 5;
+        ctx.stroke();
 
-  </div>
+        ctx.beginPath();
+        ctx.moveTo(1200, 0);
+        ctx.lineTo(855, 105);
+        ctx.lineWidth = 5;
+        ctx.stroke();
 
+        ctx.beginPath();
+        ctx.moveTo(0, 700);
+        ctx.lineTo(355, 405);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(1200, 700);
+        ctx.lineTo(855, 405);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.moveTo(563, 500);
+        ctx.lineTo(588, 250);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(647, 500);
+        ctx.lineTo(622, 250);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(588, 250);
+        ctx.lineTo(622, 250);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.moveTo(350, 405);
+        ctx.lineTo(570, 405);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(855, 405);
+        ctx.lineTo(640, 405);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+    </script>
 </body>
 </html>
