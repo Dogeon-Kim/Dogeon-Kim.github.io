@@ -4,69 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        body {
-            background-color: white;
-            width: 1200px;
-            height: 700px;
-            border-width: 2px;
-            border-color: black;
-            border-style: solid;
-            position:relative;
-            margin: auto;
-        }
-        .center{
-            border-top-width:5px;
-            border-top-style:solid;
-            border-top-color:black;
-
-            border-right-width:5px;
-            border-right-style:solid;
-            border-right-color:black;
-
-            border-left-width:5px;
-            border-left-style:solid;
-            border-left-color:black;
-
-            width: 500px;
-            height: 300px;
-            position:absolute;
-            top: 100px;
-            left:350px;
-        }
-        .sc{
-            border-width: 5px;
-            border-color: black;
-            border-style: solid;
-            width: 80px;
-            height: 200px;
-            position:absolute;
-            top: 495px;
-            left:560px;
-        }
-
-        .book1{
-            border-width: 1px;
-            border-color: red;
-            border-style: solid;
-            width: 300px;
-            height: 350px;
-            position: relative;
-            top: -400px;
-            left: 225px;
-        }
-        .front1{
-            border-width: 5px;
-            border-color: black;
-            border-style: solid;
-            width: 250px;
-            height: 300px;
-            top: 50px;
-            position: absolute;
-        }
-
-    </style>
 <body>
     <div id="container">
         <div class="center"></div>
@@ -76,74 +15,7 @@
     <div class="book1">
         <div class="front1"></div>
         <canvas id="side" width="300" height="350"></canvas>
-
     </div>
-
-    <script>
-        const canvas = document.getElementById('side');
-        const ctx = canvas.getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(355, 105);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(1200, 0);
-        ctx.lineTo(855, 105);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(0, 700);
-        ctx.lineTo(355, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(1200, 700);
-        ctx.lineTo(855, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-
-        ctx.beginPath();
-        ctx.moveTo(563, 500);
-        ctx.lineTo(588, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(647, 500);
-        ctx.lineTo(622, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-        
-        ctx.beginPath();
-        ctx.moveTo(588, 250);
-        ctx.lineTo(622, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-
-        ctx.beginPath();
-        ctx.moveTo(350, 405);
-        ctx.lineTo(570, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(855, 405);
-        ctx.lineTo(640, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(200, 405);
-        ctx.lineTo(640, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
