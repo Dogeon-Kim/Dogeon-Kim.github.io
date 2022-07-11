@@ -55,10 +55,3 @@ const canvas = document.getElementById('side');
         ctx.lineTo(640, 405);
         ctx.lineWidth = 5;
         ctx.stroke();
-
-        /*book*/
-        ctx.beginPath();
-        ctx.moveTo(225, 360);
-        ctx.lineTo(640, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
