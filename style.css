@@ -88,7 +88,7 @@ body {
     border-radius: 50px;
     background-color: azure;
     top: 375px;
-    left: 650px;
+    left: 400px;
 }
 #check-btn2{ 
     display: none; 
@@ -107,7 +107,7 @@ body {
     border-radius: 50px;
     background-color: azure;
     top: 250px;
-    left: 700px;
+    left: 450px;
     z-index: 5;
 }
 #check-btn3{ 
@@ -127,6 +127,6 @@ body {
     border-radius: 50px;
     background-color: azure;
     top: 125px;
-    left: 750px;
+    left: 500px;
     z-index: 5;
 }
