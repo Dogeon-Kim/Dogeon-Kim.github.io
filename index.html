@@ -1,53 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>김도건</title>
+    <link rel="stylesheet" href="dark.css">
+    <title>Document</title>
+</head>
 <body>
-    <div id="container">
-        <div class="center"></div>
-        <div class="sc"></div>
-        <canvas id="side" width="1200" height="700"></canvas>
-        <div class="bookr1">
-            <input id="check-btn1" type="checkbox" />
-            <label for="check-btn1"><img src="right1.jpg" alt=""></label>
-                 <div class="menubars1">
-                     <h1>Imformation for me</h1>
-                     <ul>
-                         <li><p>이름: <strong>김도건</strong></p></li>
-                         <li><p>소속: <strong>부산소프트웨어마이스터고등학교</strong></p></li>
-                         <li><p>목표: <strong>Python 완벽 공부</strong></p></li>
-                    </ul>
-                 </div> 
+
+    <div class="container">
+        <input type="button" value="Unfold" style="color: skyblue;">
+
+        <div class="move">
+            <input type="checkbox" class="checkbox" id="chk" />
+            <label class="label" for="chk">
+                <div class="ball"></div>
+            </label>
         </div>
-        <div class="bookr2">
-            <input id="check-btn2" type="checkbox" />
-            <label for="check-btn2"><img src="right2.jpg" alt=""></label>
-                 <div class="menubars2">
-                    <h1>Communication</h1>
-                    <ul>
-                        <li><p>Number: <strong>010-5484-8072</strong></p></li>
-                        <li><p>Gmail: <strong>kdk5484@gmail.com</strong></p></li>
-                        <li><p>GitHub: <strong>github.com/Dogeon-Kim</strong></p></li>
-                   </ul>
-                 </div>
-        </div>
-        <div class="bookr3">
-            <input id="check-btn3" type="checkbox" />
-            <label for="check-btn3"><img src="right3.jpg" alt=""></label>
-                 <div class="menubars3">
-                    <h1>목표</h1>
-                    <ul>
-                        <li><p>1차: <strong>임베디드과 소속 및 독일어 자격증 취득</strong></p></li>
-                        <li><p>2차: <strong>독일에서 취업</strong></p></li>
-                        <li><p>3차: <strong>프리랜서 선언</strong></p></li>
-                   </ul>
-                 </div>
+
+        <div class="box">
+            <div class="card" id="front">About Me</div>
+            <div class="card" id="back"><span class="back">Skill</span></div>
+            <div class="card" id="left">Where</div>
+            <div class="card" id="right">Study</div>
+            <div class="card" id="top">Favorite</div>
+            <div class="card" id="bottom"></div>
         </div>
     </div>
+
+    <div class="social-panel-container">
+        <div class="social-panel">
+            <p>Created with <i class="fa fa-heart"></i> by
+                <a target="_blank" href="https://github.com/Dogeon-Kim">Dogeon</a></p>
+            <button class="close-btn"><i class="fas fa-times"></i></button>
+            <h4>Contect</h4>
+            <ul>
+                <li>
+                    <a href="https://www.patreon.com/florinpop17" target="_blank"><i class="fab fa-discord"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/florinpop1705" target="_blank"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/florinpop17" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com/florinpop17" target="_blank"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/florinpop17" target="_blank"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button class="floating-btn">
+        Get in Touch
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>

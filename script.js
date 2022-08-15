@@ -1,57 +1,18 @@
-const canvas = document.getElementById('side');
-        const ctx = canvas.getContext("2d");
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(355, 105);
-        ctx.lineWidth = 5;
-        ctx.stroke();
+const chk = document.getElementById('chk');
 
-        ctx.beginPath();
-        ctx.moveTo(1200, 0);
-        ctx.lineTo(855, 105);
-        ctx.lineWidth = 5;
-        ctx.stroke();
+chk.addEventListener('change', () => {
+	document.body.classList.toggle('light');
+});
 
-        ctx.beginPath();
-        ctx.moveTo(0, 700);
-        ctx.lineTo(355, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
+// SOCIAL PANEL JS
+const floating_btn = document.querySelector('.floating-btn');
+const close_btn = document.querySelector('.close-btn');
+const social_panel_container = document.querySelector('.social-panel-container');
 
-        ctx.beginPath();
-        ctx.moveTo(1200, 700);
-        ctx.lineTo(855, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
+floating_btn.addEventListener('click', () => {
+	social_panel_container.classList.toggle('visible')
+});
 
-
-        ctx.beginPath();
-        ctx.moveTo(563, 500);
-        ctx.lineTo(588, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(647, 500);
-        ctx.lineTo(622, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-        
-        ctx.beginPath();
-        ctx.moveTo(588, 250);
-        ctx.lineTo(622, 250);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-
-        ctx.beginPath();
-        ctx.moveTo(350, 405);
-        ctx.lineTo(570, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(855, 405);
-        ctx.lineTo(640, 405);
-        ctx.lineWidth = 5;
-        ctx.stroke();
+close_btn.addEventListener('click', () => {
+	social_panel_container.classList.remove('visible')
+});

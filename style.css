@@ -1,132 +1,108 @@
-body {
-    background-color: white;
-    width: 1200px;
-    height: 700px;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    position:relative;
-    margin: auto;
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
 }
-.center{
-    border-top-width:5px;
-    border-top-style:solid;
-    border-top-color:black;
 
-    border-right-width:5px;
-    border-right-style:solid;
-    border-right-color:black;
-
-    border-left-width:5px;
-    border-left-style:solid;
-    border-left-color:black;
-
-    width: 500px;
-    height: 300px;
-    position:absolute;
-    top: 100px;
-    left:350px;
-
+body{
+    height: 100vh;
+    background: radial-gradient(#fafafa, #292C35);
 }
-.sc{
-    border-width: 5px;
-    border-color: black;
-    border-style: solid;
-    width: 80px;
-    height: 200px;
-    position:absolute;
-    top: 495px;
-    left:560px;
-}
-.front1{
-    border-width: 5px;
-    border-color: black;
-    border-style: solid;
-    width: 250px;
-    height: 300px;
-    top: 50px;
+
+.container{
+    height: 60vh;
+    width: 30vw;
     position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
 }
-.bookr3{
-    width: 300px;
-    height: 350px;
-    position: relative;
-    top: -1190px;
-    left: 280px;
-    z-index: 2;
-}
-.bookr2{
-    width: 275px;
-    height: 325px;
-    position: relative;
-    top: -800px;
-    left: 200px;
-    z-index: 3;
-}
-.bookr1{
-    width: 300px;
-    height: 350px;
-    position: relative;
-    top: -375px;
+
+.box{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 100px;
     left: 100px;
-    z-index: 4;
+    /*transform: rotate(-90deg);*/
+    transform-style: preserve-3d;
+    animation: animate 10s linear infinite;
+    transform-origin: 50% 50%;
+    transform: rotateX(-30deg);
 }
-#check-btn1{ 
-    display: none; 
+@keyframes animate{
+    100%{
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
 }
-#check-btn1:checked ~ .menubars1{ 
-    display: block; 
-} 
-.menubars1{ 
-    display: none;
-    position: fixed;
-    border-width: 10px;
-    border-color: black;
-    border-style: solid;
-    width: 600px;
-    height: 300px;
-    border-radius: 50px;
-    background-color: azure;
-    top: 375px;
-    left: 400px;
+
+.card{
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    padding: 100px 0px;
+    color: skyblue;
+    background: #292C35;
+    border: 2px solid skyblue;
+    font-size: 32px;
+    box-sizing: border-box;
+    position: absolute;
+    transition: all 1s;
 }
-#check-btn2{ 
-    display: none; 
+
+.card .shine {
+	background: #fafafa;
 }
-#check-btn2:checked ~ .menubars2{ 
-    display: block; 
-} 
-.menubars2{ 
-    display: none;
-    position: fixed;
-    border-width: 10px;
-    border-color: black;
-    border-style: solid;
-    width: 600px;
-    height: 300px;
-    border-radius: 50px;
-    background-color: azure;
-    top: 250px;
-    left: 600px;
-    z-index: 5;
+
+#front{
+    transform: translateZ(125px);
 }
-#check-btn3{ 
-    display: none; 
+#back{
+    transform: translateZ(-125px) scaleX(-1);;
 }
-#check-btn3:checked ~ .menubars3{ 
-    display: block; 
-} 
-.menubars3{ 
-    display: none;
-    position: fixed;
-    border-width: 10px;
-    border-color: black;
-    border-style: solid;
-    width: 600px;
-    height: 300px;
-    border-radius: 50px;
-    background-color: azure;
+
+#left{
+    right: 125px;
+    transform: rotateY(-90deg);
+}
+#right{
+    left: 125px;
+    transform: rotateY(90deg);
+}
+#top{
+    bottom: 125px;
+    transform: rotateX(90deg);
+}
+#bottom{
     top: 125px;
-    left: 700px;
-    z-index: 5;
+    transform: rotateX(-90deg);
+}
+
+input{
+    height: 37.5px;
+    width: 75px;
+    background: #fafafa;
+    font-size: 22px;
+    cursor: pointer;
+    position: absolute;
+    top: -100px;
+    left: 120px;
+    border-radius: 50px;
+}
+
+input:focus~ .box #front{
+    transform: translateZ(180px) rotateY(360deg);
+}
+input:focus~ .box #back{
+    transform: translateZ(-180px) rotateY(360deg) scaleX(-1);;
+}
+input:focus~ .box #left{
+    right: 180px;
+}
+input:focus~ .box #right{
+    left: 180px;
+}
+input:focus~ .box #top{
+    bottom: 180px;
 }
