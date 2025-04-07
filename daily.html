@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Journal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="log.css" />
+  <script src="log.js" defer></script>
+  <script src="contourBackground.js" defer></script>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="logo">
+    <a href="index.html">Crash & Craft</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button id="clearBtn" style="display: none;" aria-label="clear">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M18.3 5.71a1 1 0 00-1.41 0L12 10.59 7.11 5.7a1 1 0 00-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 001.41 1.41L12 13.41l4.89 4.89a1 1 0 001.41-1.41L13.41 12l4.89-4.89a1 1 0 000-1.4z"/>
+      </svg>
+    </button>
+    <button id="searchBtn" aria-label="search">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" fill="white">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.07 5.59 12.53 3 9.5 3S3.93 5.59 3.93 8.39c0 2.8 2.54 5.39 5.57 5.39a6.47 6.47 0 005.34-1.48l.27.28v.79l4.25 4.25c.39.39 1.03.39 1.42 0a.9959.9959 0 000-1.41L15.5 14z"/>
+      </svg>
+    </button>
+  </div>
+  <div class="search-suggestions" id="suggestionBox"></div>
+
+  <!-- 검색창 아래 또는 상단에 배치 -->
+  <div class="sort-dropdown">
+    <label for="sortSelect">정렬: </label>
+    <select id="sortSelect" title="포스트 정렬 순서를 선택하세요">
+      <option value="newest" title="최신 게시글이 먼저 나옵니다">🆕 최신순</option>
+      <option value="oldest" title="오래된 게시글이 먼저 나옵니다">📜 오래된순</option>
+    </select>
+  </div>
+
+
+
+  <div class="content">
+    <div class="blog-posts" id="posts-container"></div>
+  
+    <!-- + 버튼 -->
+    <div class="load-more-container">
+      <button id="loadMoreBtn">+</button>
+    </div>
+  </div>
+
+  
+
+  
+  
+  
+  <!-- ❌ 결과 없음 메시지는 이 위치로! -->
+  <div id="noResultMsg">검색 결과가 없습니다.</div>
+
+  <div id="preview" class="preview-box"></div>
+
+  
+
+</body>
+</html>

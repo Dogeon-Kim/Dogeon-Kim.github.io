@@ -1,0 +1,222 @@
+/* 전체 스타일 초기화 및 배경 설정 */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #d8caaf;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* 슬라이더 전체 영역 설정 */
+.slider {
+  position: relative;
+  width: 95vw;
+  max-width: 1300px;
+  height: 70vh;
+  max-height: 700px;
+  overflow: hidden;
+  margin-top: -3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+/* 슬라이드 묶음 */
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 개별 슬라이드 */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide.prev,
+.slide.next {
+  opacity: 0.3;
+  transform: scale(0.95);
+  z-index: 1;
+}
+
+/* 이미지 영역 */
+.post-image {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1%;
+}
+
+
+
+
+
+.slide.active .post-image img {
+  clip-path: inset(0 0 0 0); /* 점점 펼쳐지게 */
+  opacity: 1;
+}
+
+.post-image img {
+  width: 90%;
+  height: auto;
+  display: block;
+  transform: rotateY(15deg) scaleX(-1.05);
+  box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: clip-path 0.8s ease, opacity 0.5s ease;
+  clip-path: inset(0 100% 0 0); /* 처음엔 안 보임 */
+  opacity: 0;
+}
+
+/* 텍스트 영역 */
+.post-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 1px #000;
+  width: 100%;
+  height: 50%;
+
+  background-color: #d8caaf;
+  margin: auto;
+  padding: 1%;
+  box-shadow: 0 4px 8px #303030;
+
+  border-radius: 30px;
+}
+
+.post-text * {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.post-text:hover {
+  color: #526051; /* 노란색 강조 예시 */
+  transition: color 0.3s ease;
+  text-shadow: 0 0 1px #000;
+  transform: scale(1.05);
+}
+
+
+/* 인디케이터 및 버튼 */
+.indicator-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 30px;
+  left: 0;
+  z-index: 3;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.indicator-wrapper .btn {
+  position: relative;
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  border-radius: 7.5px;
+  transition: background 0.3s;
+  font-size: 10px;
+  display:flex; justify-content:center; align-items:center;
+}
+
+.indicator-wrapper .btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.indicator-wrapper .indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .slide {
+    flex-direction: column;
+  }
+  .indicator-wrapper {
+    bottom: 10px;
+    flex-direction: column;
+  }
+  .post-image, .post-text {
+    width: 100%;
+  }
+  .post-image {
+    height: auto;
+  }
+  .post-text {
+    height: auto;
+  }
+}
+
+
+
+.logo {
+  position: fixed;
+  top: 25px;
+  left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 8px #303030;
+}
+
+.logo a:hover {
+  transform: scale(1.05);
+  color: #526051; 
+  text-shadow: 0 0 8px #526051; 
+}

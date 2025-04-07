@@ -1,16 +1,83 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="static/styles/main.css">
-    <link rel="stylesheet" href="static/styles/reset.css">
-    <title>Three.JS-Webpack Boilerplate</title>
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crash & Craft</title>
 
-    <canvas id="index"></canvas>
-    <script src="public/bundle.js"></script>
-  </body>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JS (등고선 애니메이션) -->
+  <script src="contourBackground.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuLinks = document.querySelectorAll(".menu a");
+      menuLinks.forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const target = link.getAttribute("href");
+
+          // 글씨들을 왼쪽으로 이동
+          document.body.classList.add("page-exit");
+
+          setTimeout(() => {
+            window.location.href = target;
+          }, 600); // 애니메이션 길이와 맞춰줌
+        });
+      });
+    });
+  </script>
+  <script data-goatcounter="https://geon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+
+
+
+
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="title">Crash & Craft</div>
+  <div class="subtitle">PAUL KIM</div>
+  <hr class="menu-separator" />
+
+  <nav class="menu">
+    <a href="daily.html">Daily Journal</a>
+    <a href="#">Engineering Notes</a>
+    <a href="#">Language Logs</a>
+    <a href="#">Side Projects</a>
+    <a href="gallery.html">Photo Feed</a>
+    <a href="#">Portfolio</a>
+  </nav>
+
+  <div class="visitor-counter">
+    All-time visitors: <span id="goat-count">Loading...</span>
+  </div>
+
+
+
+  <script>
+    fetch("https://dogeon.goatcounter.com/counter/@json")
+      .then(response => response.json())
+      .then(data => {
+        const total = data.count;
+        document.getElementById("goat-count").innerText = total.toLocaleString();
+      })
+      .catch(() => {
+        document.getElementById("goat-count").innerText = "Error";
+      });
+  </script>
+  
+  
+  
+  
+  
+</body>
 </html>
+
+

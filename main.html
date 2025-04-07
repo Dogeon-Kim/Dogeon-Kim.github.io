@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Viewer - Crash & Craft</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- JS -->
+  <script src="main.js" defer></script>
+  <script src="contourBackground.js" defer></script>
+</head>
+<body>
+  <a href="daily.html" class="back-button" title="뒤로가기">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
+      <path d="M15 19l-7-7 7-7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  
+
+  <!-- 로고 -->
+  <div class="logo">
+    <a href="index.html">Crash & Craft</a>
+  </div>
+  
+
+  <!-- 중앙 콘텐츠 상자 -->
+  <div class="content">
+    <!-- Notion에서 가져온 본문 들어오는 곳 -->
+    <div id="postContainer"></div>
+
+    <!-- 댓글 작성 영역 -->
+    <div class="comment-section">
+      <h3>댓글 작성</h3>
+      <form id="commentForm">
+        <input type="text" id="commentName" placeholder="이름을 입력하세요" required />
+        <textarea id="commentInput" placeholder="댓글을 입력하세요..." required></textarea>
+        <button type="submit">댓글 등록</button>
+      </form>
+      <div id="commentList"></div>
+    </div>
+
+    <!-- 추천 포스트 영역 -->
+    <div class="recommend-section">
+      <h3>다른 추천 글</h3>
+      <div id="recommendList" class="recommend-list"></div>
+    </div>
+  </div>
+</body>
+</html>

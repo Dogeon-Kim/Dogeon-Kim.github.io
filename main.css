@@ -1,0 +1,348 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #d8caaf;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+.logo {
+  position: fixed;
+  top: 25px;
+  left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 8px #303030;
+}
+
+.logo a:hover {
+  transform: scale(1.05);
+  color: #526051; 
+  text-shadow: 0 0 8px #526051; 
+}
+
+/* ← 버튼 */
+.back-button {
+  position: fixed;
+  top: 25px; /* 로고와 같은 높이 */
+  right: 50px; /* 콘텐츠 바깥 우측 상단 */
+  z-index: 20;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: rgba(147, 147, 147, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(82, 96, 81, 0.8);
+}
+
+.back-button svg {
+  vertical-align: middle;
+}
+
+.content {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 25px;
+  width: 90%;
+  max-width: 1600px;
+  height: calc(100vh - 140px);
+  background-color: rgba(48, 48, 48, 0.5);
+  border-radius: 15px;
+  padding: 40px;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  scroll-behavior: smooth;
+}
+
+/* 이하 생략 - 나머지 스타일 유지 */
+
+/* ✅ 스크롤바 스타일 예쁘게 */
+.content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* 이하 생략 - 나머지 스타일은 그대로 유지 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #d8caaf;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px; /* ✅ 메인 콘텐츠 하단 여유 공간 추가 */
+}
+
+.logo {
+  position: fixed;
+  top: 25px;
+  left: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+/* 이하 생략 - 나머지 스타일은 그대로 유지 */
+
+
+.comment-section {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 32px;
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.comment-section h3 {
+  margin-bottom: 10px;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+#commentForm input[type="text"] {
+  width: 33%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+}
+
+#commentForm textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+#commentForm button {
+  align-self: flex-start;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#commentForm button:hover {
+  background-color: rgba;
+}
+
+#commentList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.comment-item span.name {
+  font-weight: bold;
+  color: #526051;
+  margin-right: 10px;
+}
+
+.comment-item .delete-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: auto;
+}
+
+.comment-item .delete-btn:hover {
+  color: #7e6771;
+}
+
+/* 추천 포스트 영역 스타일 */
+.recommend-section {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 32px;
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.recommend-section h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.recommend-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.recommend-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  width: 30%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.recommend-item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.03);
+  color: #526051; 
+  text-shadow: 0 0 8px #fff; 
+}
+
+.recommend-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.recommend-item h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Notion 문단 및 텍스트 요소 스타일 */
+#postContainer {
+  color: #fff;
+  line-height: 1.6;
+}
+
+#postContainer p,
+#postContainer li,
+#postContainer td,
+#postContainer th {
+  color: #fff;
+}
+
+#postContainer blockquote {
+  border-left: 4px solid rgba(255, 255, 255, 0.5);
+  padding-left: 16px;
+  margin: 1em 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+#postContainer .callout {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 6px solid #ffcc00;
+  padding: 1em;
+  border-radius: 6px;
+  margin: 1em 0;
+}
+
+#postContainer code,
+#postContainer pre {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #ffcc99;
+}
+
+#postContainer hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 2em 0;
+}
+
+#postContainer h1,
+#postContainer h2,
+#postContainer h3 {
+  color: #fff;
+  margin-top: 1em;
+}
+
+#postContainer a {
+  color: #6cf;
+  text-decoration: underline;
+}
+
+#postContainer .page-cover-image {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>3. 실습을 위한 Gazebo 환경과 사용법 소개</title>
+	<link rel="stylesheet" href="main.css" />
+</head><body><article id="94d2bac6-fe83-4aa6-bf34-04c9114b8528" class="page sans"><header>
+	<img class="page-cover-image" src="https://www.notion.so/images/page-cover/rijksmuseum_jansz_1636.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💻</span></div><h1 class="page-title">3. 실습을 위한 Gazebo 환경과 사용법 소개</h1><p class="page-description"></p></header><div class="page-body"><blockquote id="0bfd15ec-9668-4c05-9a6b-1d0dd86690bc" class="">앞선 과정에서, ROS 설치는 모두 완료하셨나요??                                                이번 시간에는 앞으로 실습을 진행할 로봇 시뮬레이션, Gazebo 환경을 구축해보고, 간단한 사용법을 소개 해 봅니다.</blockquote><p id="a13537d9-2887-422a-a8af-9864e0b01491" class="">
+</p><figure id="517d0033-46df-42d6-a07e-ed9761d69956" class="image"><a href="Untitled.png"><img style="width:576px" src="log/log1/Untitled.png"/></a></figure><p id="a166d9e9-81bf-4498-91e8-7c6f94f4a016" class="">
+</p><ul id="155d4e05-d845-458d-b471-50e783ca5c99" class="bulleted-list"><li style="list-style-type:disc">시작하기 앞서 <strong>catkin workspace</strong>를 만들어 보겠습니다 </li></ul><p id="a8ca8cbc-dfa5-455d-8f8d-0492ef512679" class="">
+</p><p id="947b7d46-7a5c-4f9e-af61-930a6cd8141d" class="">ROS는 <code>catkin</code>이라는 빌드 시스템을 사용합니다. 기존 c/c++ cross-platform 개발을 경험하셨다면 cmake에 익숙하실텐데, 이와 매우 비슷합니다. 😎</p><p id="19af55db-7ac3-4bf5-9703-5cbe4dda5230" class="">
+</p><p id="9813464d-213a-42d1-8c2d-b49afa8f4a7f" class="">파일 구조 관점에서, ROS Application은 여러 <code>Package</code>들로 이루어집니다.</p><p id="b0612de0-7ba0-4792-9f27-7dae39fddafb" class="">이들 <code>Package</code>가 소스 파일을 담고 있고, <code>catkin</code>이 이들을 빌드하여 실행 프로그램들을 만들죠.</p><p id="4c182007-e667-4d6e-b8e7-00a81bc3c336" class="">
+</p><p id="4085b849-824a-48ae-9fa7-9c7ddf2684b1" class="">이번에는 <code>catkin workspace</code>를 만들고, <strong>Github</strong>에서 외부 패키지를 <strong>clone</strong>하여 빌드, 사용해보고자 합니다.</p><p id="b642f85a-9752-40de-9284-7d93b1281d24" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="535141ff-9383-4e31-90cb-33c2dad5f8e8" class="code"><code class="language-Bash">$ cd ~/
+$ mkdir -p gcamp_ws/src
+$ cd gcamp_ws/src
+
+# editted 2021-04-11 
+$ cop cpp_service_tutorial  
+$ cop cpp_topic_tutorial
+
+$ catkin_init_workspace
+Creating symlink &quot;/home/swimming/gcamp_ws/src/CMakeLists.txt&quot; pointing to 
+&quot;/opt/ros/melodic/share/catkin/cmake/toplevel.cmake&quot;
+
+$ cd ../
+$ catkin_make
+$ cma
+# 항상 make한 다음에는 다음과 같이 source!!
+$ source devel/setup.bash
+$ sds</code></pre><p id="5ce068d8-0065-4fc9-958f-cf56b72cdac2" class="">
+</p><figure id="417f9c49-be85-4302-ac96-f1fb2a7629a8" class="image"><a href="Untitled%201.png"><img style="width:576px" src="Untitled%201.png"/></a></figure><p id="d93604b5-aa79-40d8-be72-15c9cc294580" class="">다음과 같이 build, devel, src 폴더가 만들어졌나요??</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="41fee39b-c01b-4e6e-9fb2-4483743471ff"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">문제가 생겼다거나 터미널에 <strong><mark class="highlight-red">빨간줄</mark></strong>이 나왔다면, 당황하지 마시고 초기화 후 재실행 시켜봅니다.</div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5896cd3b-864e-45af-a890-daee1fdd79e5" class="code"><code class="language-Bash">$ cd ~/
+$ rm -rf gcamp_ws
+
+# 다시 이전 과정 반복</code></pre><p id="73f8c02b-e860-475e-b035-d9792c0e0549" class="">
+</p><h2 id="df7e707d-3bd3-444e-9d4f-105a5b09ec92" class="">G Camp World</h2><hr id="d24bb8a1-49ec-46f9-ba87-6f7222c669d7"/><ul id="bcb5be86-4cd8-4285-9e09-0dbd5016ffde" class="bulleted-list"><li style="list-style-type:disc"><strong>Clone &amp;&amp; Build</strong></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cc850f01-e5ea-4500-ad19-f16756a808e9" class="code"><code class="language-Bash">$ cd ~/gcamp_ws/src
+
+$ git clone https://github.com/Road-Balance/gcamp_ros_basic.git
+$ cd ~/gcamp_ws
+$ catkin_make
+
+# 항상 make한 다음에는 다음과 같이 source!!
+$ source devel/setup.bash</code></pre><p id="1343358e-e841-46ef-aa06-9b35852b11bf" class="">
+</p><ul id="ad30b637-9353-46f8-a7df-4a70bddcec94" class="bulleted-list"><li style="list-style-type:disc"><strong>Gazebo</strong>에 <code>Model Path Add</code></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ae00664f-78d1-417f-b850-f11f781bb909" class="code"><code class="language-JavaScript">$ gedit ~/.gazebo/gui.ini
+
+# 다음 부분 수정
+[model_paths]
+filenames=/home/&lt;user_name&gt;/gcamp_ws/src/gcamp_ros_basic/GazeboFiles/models</code></pre><p id="ad32ed4b-e8d6-476d-8b4d-9a91340195ff" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="724a3fac-f1df-428d-8cc4-6f0dcc54feb9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong><code>&lt;user_name&gt;</code></strong>에는 여러분이 정한 PC 이름을 적어주셔야 합니다!! </div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b05a66f1-5de9-4b6b-9abf-51c6f6e9f877"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><code>gui.ini</code>가 없어요!!! <em>- contributed by 장홍직님</em></div></figure><h3 id="2f546647-225c-4d9b-bbd2-e0699e89e943" class="">Solution 2 Add Path를 통해 자동 생성하기 - 추천</h3><hr id="8de079a6-db7f-4617-aefd-2c210c28963f"/><p id="d49eadf7-ce47-4234-b7ce-8ed951c69ee2" class="">gazebo를 실행시키고, 오른쪽 상단 menu에서 insert ⇒ Add Path를 누르신 뒤 아무 폴더나 선택하면 자동으로 생성됩니다.</p><p id="7ad7130f-5141-4419-a879-ae1afc6657fd" class="">이후 <code>gui.ini</code> 파일을 수정하시면 됩니다.</p><figure id="98fa064c-201a-4d57-9556-0d36f6536261" class="image"><a href="Untitled%202.png"><img style="width:250px" src="Untitled%202.png"/></a></figure><p id="d1556e03-cadb-427e-9f56-32b544b5c2ff" class="">
+</p><h3 id="e219c1f0-bd6b-4446-8ee6-66d5b9d850f6" class="">Solution 1 직접 만들기</h3><hr id="2b8d3c94-64f3-4e73-b0dc-66ba5d72447a"/><p id="6ece58fc-d4f4-4a0a-88ca-ce1e5f4e5bc2" class="">해당 위치에 직접 gui.ini 파일을 만들어주는 방법입니다. </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f70e3b60-a337-411a-9f7b-35dff6c8461e" class="code"><code class="language-Bash">$ cd ~/.gazebo
+$ touch gui.ini
+
+$ gedit gui.ini
+
+# 다음 내용을 입력합니다.
+[geometry]
+x=0
+y=0
+[model_paths]</code></pre><p id="c64f41c1-3730-4200-9041-d58d7599e411" class="">
+</p><p id="6de53415-12c5-486d-ab3b-d635f517a38c" class="">
+</p><p id="5502974d-baa4-4e04-83a7-7f0cbcdf5b39" class="">
+</p><ul id="191d17ec-f2e4-46df-97f5-b837cef49b97" class="bulleted-list"><li style="list-style-type:disc">대망의 <strong>launch!!</strong></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="289055f4-669d-402d-a7ec-2e465b6040e9" class="code"><code class="language-Bash">$ cd ~/gcamp_ws
+$ roslaunch gcamp_gazebo gazebo_world.launch</code></pre><figure id="8e8e6abf-6cef-46aa-a9a2-3b958acb10e0" class="image"><a href="Untitled%203.png"><img style="width:624px" src="Untitled%203.png"/></a></figure><p id="b842545c-e555-493a-91e7-cda758bb0df2" class="">
+</p><h3 id="b5d647bd-1214-4298-8bc9-43ce12056095" class=""><strong>Trouble Shooting</strong></h3><hr id="6aa05e48-efd5-4bee-b84d-ddbddeff2bcf"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c49a1ff5-0417-4ae1-a910-37a272bd99d0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">초기 실행시에는 로딩 시간이 다곳 오래 걸릴 수 있습니다!!</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e2afb89a-cdd8-4d93-b228-8bbf160bdd30"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">데스크탑 환경에서 작업하는 실습입니다!! 젯슨 나노가 아닙니다!!</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bfc4de35-a743-468d-8f75-028da27c8f9d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">ros 설치 시 ros-melodic-desktop-<strong>full</strong> 로 설치하셔야 합니다!!</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="d5b263fc-9745-4c34-839c-d19d9d89b71d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">windows key를 눌러 Gazebo를 실행시켜보세요, 이때 문제가 없다면 단순히 로딩 시간이 긴 것입니다.</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0aec5400-6f39-46e9-9e68-80b7a6799849"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"> Anaconda와 같은 가상환경을 사용하고 계시다면, 반드시 deactivate 시켜주세요!!</div></figure><h3 id="b549bcea-681a-45df-8eff-3f0a17c90f06" class="">Gazebo 기본 사용법</h3><p id="a8065be0-3af7-4347-aeef-00d35a0948f3" class="">터미널을 틀거나, <code>windows</code>키를 누른 뒤 <strong>gazebo</strong>를 실행시킵니다.</p><figure id="a5132698-96e8-4647-9d1c-95d724d2f49f" class="image"><a href="Untitled%204.png"><img style="width:576px" src="Untitled%204.png"/></a></figure><p id="e1e836ea-c17b-4794-bdb3-d37883439708" class="">
+</p><p id="5918110c-839c-4adb-b598-ab3fc972074f" class=""><strong>기본 사용법 소개</strong></p><ul id="78245025-799a-4d08-ae7b-f133412be111" class="bulleted-list"><li style="list-style-type:disc">마우스, 휠 컨트롤</li></ul><ul id="6caeea17-ce66-4ade-b104-745c276eda40" class="bulleted-list"><li style="list-style-type:disc">View 전환</li></ul><ul id="68f2f56f-ee57-4f86-876f-03e94a955ddd" class="bulleted-list"><li style="list-style-type:disc">Insert Model</li></ul><ul id="643ccdc1-9432-42c2-8d01-fbd4204093fe" class="bulleted-list"><li style="list-style-type:disc">물체 이동시키기 </li></ul><ul id="0bf3f52d-470d-4fa7-820c-fdee583c6961" class="bulleted-list"><li style="list-style-type:disc">종료 방법</li></ul><p id="d0d718f9-5d07-4e05-b390-c8b9dc410230" class="">
+</p><h3 id="db814803-8130-48f5-a7d2-baf9db7fabb8" class="">Gazebo 좌표체계</h3><hr id="f7a16618-6fcd-4ca9-bf62-5f05aa789f1c"/><p id="561794ed-8bf6-4f6c-a7a0-b11479512e24" class="">우리의 시뮬레이션 기준, gazebo는 아래와 같은 좌표체계를 갖습니다. </p><figure id="4b3801ed-5170-4d48-a08c-0e8d005396d1" class="image"><a href="Untitled%205.png"><img style="width:576px" src="Untitled%205.png"/></a></figure><p id="e765c004-72ad-456b-9748-e840b7ab78bb" class="">
+</p><h3 id="afa6eeb2-5e34-4047-a6f7-306508270678" class="">teleoperation 실습 </h3><hr id="82dce479-2966-4c67-b8b0-330dc3548513"/><p id="b0ddfdc5-28f2-4dd9-b55d-f0722333f58f" class="">간단한 <code>teleoperation</code>(원격 조종)을 해볼까요?? 키보드로 로봇을 움직여 봅니다.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f405698d-4c0b-4eef-b5f9-828547634b1f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><code>sudo apt-get install ros-melodic-teleop-twist-keyboard</code>를 통해 패키지를 설치해 주셔야 합니다!! <em>- comment by 정희찬님</em></div></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="64fd7079-1f5c-47cc-9be1-5a1c87fcbc23" class="code"><code class="language-Bash"># 새 터미널에서
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
+Reading from the keyboard  and Publishing to Twist!
+---------------------------
+Moving around:
+   u    i    o
+   j    k    l
+   m    ,    .
+
+For Holonomic mode (strafing), hold down the shift key:
+---------------------------
+   U    I    O
+   J    K    L
+   M    &lt;    &gt;
+
+t : up (+z)
+b : down (-z)
+
+anything else : stop
+
+q/z : increase/decrease max speeds by 10%
+w/x : increase/decrease only linear speed by 10%
+e/c : increase/decrease only angular speed by 10%
+
+CTRL-C to quit</code></pre><p id="1d188b05-264f-41a3-89f9-ed6100774d69" class="">
+</p><h2 id="3dc291c7-682c-44f4-998f-9a361f0d8171" class="">앞으로의 과정</h2><hr id="5b0c8b1c-400b-4b07-8229-d4119c299750"/><p id="d014203a-57e0-4adb-b093-462d04f88e43" class="">지금부터는 앞서 실행시켜본 <code>Simulation</code>에 기반해서 <strong>ROS </strong>개발의 전반적인 프로세스를 살펴보고, Python/C++을 통한 프로그래밍, 여러가지 센서들을 다루는 방법들에 대해 배웁니다. </p><p id="e3d9addd-22fa-4fdc-aaad-28f0ab7e1ab8" class="">그 이후, 실제 로봇을 조립해보고,  <strong><code>하드웨어</code></strong><strong> </strong>+ <strong><code>젯슨 나노</code></strong> + <strong><code>ROS</code></strong>의 조합으로 우리만의 로봇을 만들어 볼 것입니다.</p><p id="19edbc7e-5425-4d2f-9f7c-5f3b4016ac60" class="">
+</p><p id="b8eae4ba-3378-44fc-a301-d69be263c274" class="">
+</p><p id="88b0cd5b-e2b3-4c5b-a39a-abc960c617c8" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
